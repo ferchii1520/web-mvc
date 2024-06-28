@@ -21,9 +21,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
-					<h1 class="text-center">Registro de Empleado</h1>
+					<h1 class="text-center">Actualizacion de Empleado</h1>
 					<div class="card-body">
-						<form th:action="@{/empleado}" method="POST" th:object="${empleado}">
+						<form th:action="@{/empleado/{id}(id=${empleado_update.id})}" method="POST" th:object="${empleado_update}">
+						
 							<div class="form-floating">
 								<input type="text" name="nombre" th:field="*{nombre}" class="form-control" placeholder="Ingrese su nombre" required>
 								<label for="floatingInputGrid">Nombre</label>
@@ -45,7 +46,7 @@
 							</div>
 							<br>
 							<div class="box-footer">
-								<button class="btn btn-success">Guardar</button>
+								<button class="btn btn-success">Editar</button>
 							</div>
 						</form>
 					</div>

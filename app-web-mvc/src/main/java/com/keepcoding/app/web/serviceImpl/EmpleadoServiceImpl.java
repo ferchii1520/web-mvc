@@ -27,18 +27,17 @@ public class EmpleadoServiceImpl implements EmpleadoService {
 
 	@Override
 	public Empleado obtenerEmpleado(Long id) {
-		return null;
+		return empleadoRepository.findById(id).get();
 	}
 
 	@Override
 	public Empleado actualizarEmpleado(Empleado empleado) {
-		return null;
+		return empleadoRepository.save(empleado);
 	}
 
 	@Override
 	public void eliminarEmpleado(Long id) {
-		
-		
+		empleadoRepository.deleteById(id);
 	}
 
 }
