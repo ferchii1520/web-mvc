@@ -12,9 +12,6 @@ import com.keepcoding.app.web.entity.Empleado;
 import com.keepcoding.app.web.service.EmpleadoService;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-
-
 @Controller
 public class EmpleadoController {
 	

@@ -13,44 +13,51 @@
 				<a class="nav-link disabled" aria-disabled="true">App Web</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" aria-current="page" th:href=@{/}>Home</a>
+				<a class="nav-link" aria-current="page" th:href=@{/}>Home</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" aria-current="page" th:href=@{/empleado/new}>New Empleado</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" aria-current="page" th:href=@{/proveedores}>Proveedores</a>
+				<a class="nav-link active" aria-current="page" th:href=@{/proveedores}>Proveedores</a>
 			</li>
 		</ul>
 	
 		<div class="container">
 			<div class="row">
-				<h1 class="text-center">Lista Empleados</h1>
+				<h1 class="text-center">Lista Proveedores</h1>
 			</div>
-		
+			
+			<form class="row g-3" th:action="@{/proveedores}">
+				<div class="col-auto">
+					<label for="staticEmail2" class="visually-hidden">Filtro</label>
+					<input type="text" class="form-control-plaintext" name="datoBuscado" placeholder="Ingrese su busqueda" th:value="${datoBuscado}">
+				</div>
+				<div class="col-auto">
+					<button type="submit" class="btn btn-primary mb-3">Buscar</button>
+				</div>
+			</form>
+			
 			<table class="table">
 				<thead class="table-dark">
 					<tr>
 						<th scope="col">#</th>
 						<th scope="col">Nombre</th>
-						<th scope="col">Apellido</th>
+						<th scope="col">Cif</th>
+						<th scope="col">Direccion</th>
 						<th scope="col">Email</th>
 						<th scope="col">Telefono</th>
-						<th scope="col">Acciones</th>
 					</tr>
 				</thead>
 				
 				<tbody>
-					<tr th:each="emp: ${empleados}">
-						<th th:text="${emp.id}" scope="row"></th>
-						<td th:text="${emp.nombre}"></td>
-						<td th:text="${emp.apellido}"></td>
-						<td th:text="${emp.email}"></td>
-						<td th:text="${emp.telefono}"></td>
-						<td>
-							<a class="btn btn-info" th:href=@{/empleado/editar/{id}(id=${emp.id})}>Editar</a>
-							<a class="btn btn-danger" th:href=@{/empleado/delete/{id}(id=${emp.id})} onclick="return confirm('Estas seguro?');">Borrar</a>
-						</td>
+					<tr th:each="prov: ${proveedor}">
+						<th th:text="${prov.id}" scope="row"></th>
+						<td th:text="${prov.nombre}" ></td>
+						<td th:text="${prov.cif}" ></td>
+						<td th:text="${prov.direccion}" ></td>
+						<td th:text="${prov.email}"></td>
+						<td th:text="${prov.telefono}"></td>
 					</tr>
 				</tbody>
 			</table>
